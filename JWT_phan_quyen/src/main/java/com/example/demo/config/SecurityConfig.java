@@ -72,11 +72,16 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .requestMatchers("/api/auth/login**").permitAll()
+
                                 .requestMatchers(HttpMethod.GET, "/api/computer/**").authenticated()
-//                        .requestMatchers("/api/customers**").hasAnyAuthority("ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.DELETE, "/api/computer/**").hasAnyAuthority("ADMIN")
                                 .requestMatchers(HttpMethod.PUT, "/api/computer/**").hasAnyAuthority("ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/api/computer/**").hasAnyAuthority("ADMIN")
+
+                                .requestMatchers(HttpMethod.GET, "/api/user/**").authenticated()
+                                .requestMatchers(HttpMethod.DELETE, "/api/user/**").hasAnyAuthority("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/user/**").hasAnyAuthority("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/user/**").hasAnyAuthority("ADMIN")
 
                 )
                 .exceptionHandling(customizer -> customizer.accessDeniedHandler(customAccessDeniedHandler()))
