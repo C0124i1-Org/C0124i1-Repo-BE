@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.model.Computer;
-import com.example.demo.service.IComputerService;
+import com.example.demo.service.computerService.IComputerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +21,14 @@ public class ComputerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Computer> finOne(@PathVariable Long id) {
+    public ResponseEntity<Computer> findOne(@PathVariable Long id) {
         Computer c = computerService.findOne(id);
         return new ResponseEntity<>(computerService.findOne(id), HttpStatus.OK);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> save(@RequestBody Computer customer) {
-        computerService.save(customer);
+    public ResponseEntity<?> save(@RequestBody Computer computer) {
+        computerService.save(computer);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

@@ -17,8 +17,8 @@ public class Computer {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String status = "Disable";  // Available or Disable
+    @Column(nullable = false,columnDefinition = "boolean default false")
+    private Boolean status ;  // Available or Disable
 
     @Column(nullable = false)
     private float usageTime = 0.0f;  // in hours
