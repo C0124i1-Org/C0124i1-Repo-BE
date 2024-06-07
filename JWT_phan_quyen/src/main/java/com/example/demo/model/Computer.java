@@ -16,8 +16,8 @@ public class Computer {
 
     @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false,columnDefinition = "boolean default false")
+    
+    @Column(columnDefinition ="boolean default false" )
     private Boolean status ;  // Available or Disable
 
     @Column(nullable = false)
