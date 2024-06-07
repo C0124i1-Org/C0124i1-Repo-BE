@@ -35,4 +35,4 @@ out/
 
 ### VS Code ###
 .vscode/
-application.properties
+JWT_phan_quyen/src/main/resources/application.properties
