@@ -3,13 +3,16 @@ package com.example.demo.config.service;
 import com.example.demo.config.UserPrinciple;
 import com.example.demo.model.User;
 import com.example.demo.repo.IUserRepository;
+import com.example.demo.service.userService.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService  {
     @Autowired
     private IUserRepository userRepository;
 
