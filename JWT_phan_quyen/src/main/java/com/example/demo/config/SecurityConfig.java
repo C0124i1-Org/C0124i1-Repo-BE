@@ -83,10 +83,13 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/api/user/**").hasAnyAuthority("ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/api/user/**").hasAnyAuthority("ADMIN")
 
+
                                 .requestMatchers(HttpMethod.GET, "/api/revenue/**").authenticated()
                                 .requestMatchers(HttpMethod.POST, "/api/revenue/time/**").authenticated()
 
 
+
+                        .requestMatchers(HttpMethod.POST, "/api/service/**").hasAnyAuthority("ADMIN")
 
                 )
                 .exceptionHandling(customizer -> customizer.accessDeniedHandler(customAccessDeniedHandler()))
