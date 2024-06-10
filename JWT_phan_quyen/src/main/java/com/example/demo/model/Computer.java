@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,10 +19,10 @@ public class Computer {
     private String name;
     
     @Column(columnDefinition ="boolean default false" )
-    private Boolean status ;  // Available or Disable
+    private Boolean status ;
 
     @Column(nullable = false)
-    private float usageTime = 0.0f;  // in hours
+    private float usageTime = 0.0f;
 
     @Column(nullable = false)
     private float serviceCost = 0.0f;
@@ -29,11 +30,13 @@ public class Computer {
     @Column(nullable = false)
     private float totalCost = 0.0f;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Revenue> revenueEntries;
 
-    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ComputerService> computerServices;
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<ComputerService> computerServices;
 
 
 }
