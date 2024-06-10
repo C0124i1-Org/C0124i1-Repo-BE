@@ -37,10 +37,10 @@ public class ComputerController {
     public ResponseEntity<Computer> createComputer(@RequestBody ComputerDTO computerDTO) {
         Computer computer = new Computer();
         computer.setName(computerDTO.getName());
-        computer.setStatus(false); // Default status to false
-        computer.setUsageTime(0.0f); // Default usage time to 0.0
-        computer.setServiceCost(0.0f); // Default service cost to 0.0
-        computer.setTotalCost(0.0f); // Default total cost to 0.0
+        computer.setStatus(false);
+        computer.setUsageTime(0.0f);
+        computer.setServiceCost(0.0f);
+        computer.setTotalCost(0.0f);
 
         Computer savedComputer = computerRepository.save(computer);
         return ResponseEntity.ok(savedComputer);
