@@ -72,4 +72,17 @@ public class ComputerController {
         boolean exists = computerRepository.existsByName(name);
         return ResponseEntity.ok(exists);
     }
+    // API to get online computers
+    @GetMapping("/online")
+    public ResponseEntity<List<Computer>> findOnlineComputers() {
+        List<Computer> onlineComputers = computerRepository.findByStatus(true);
+        return ResponseEntity.ok(onlineComputers);
+    }
+
+    // API to get offline computers
+    @GetMapping("/offline")
+    public ResponseEntity<List<Computer>> findOfflineComputers() {
+        List<Computer> offlineComputers = computerRepository.findByStatus(false);
+        return ResponseEntity.ok(offlineComputers);
+    }
 }
