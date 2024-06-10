@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.computerService;
 
 import com.example.demo.model.Computer;
 import com.example.demo.repo.IComputerRepository;
